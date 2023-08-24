@@ -96,6 +96,7 @@ const App = () => {
       setError(`Request failed: ${error.message}`);
     }
     setLoading(false);
+    setQuery('')
   };
 
   const handleQuerySubmit = () => {
@@ -153,8 +154,7 @@ const App = () => {
       <div className="p-4 bg-[#09090b] w-[50%] mx-auto flex items-center justify-center">
         <form className="flex w-full" onSubmit={(e) => { e.preventDefault(); handleQuerySubmit(); }}>
           <input
-            className='w-full p-2 rounded p-6 h-[60px] text-md text-[#fafafa] 
-                        opacity-80 focus:outline-none bg-transparent border border-white/10'
+            className='w-full p-2 rounded p-6 h-[60px] text-md text-[#fafafa] opacity-80 focus:outline-none bg-transparent border border-white/10'
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
