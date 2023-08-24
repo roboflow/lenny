@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: rgb(9 9 11);
+  --background-start-rgb: rgb(9 9 11);
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--background-start-rgb);
+  font-family: 'Roboto', sans-serif; /* Set Roboto as the default font */
+}
+
+
+p, h1, h3, h4 {
+  color: #fafafa
+}

@@ -1,0 +1,17 @@
+
+--STEP 1
+1. Making Kapa work with Stream
+2. Take input from user in chat
+3. Style as the template (move, framer motion)
+4. Example prompts like Apple slide
+5. Vercel hosted
+    - add box prompts
+    - enter keyboard 
+    - loading icon
+    - <a> tag link for resources
+
+-- STEP 2
+1. OAuth with Roboflow
+2. Save history chat
+3. Send to Firebase
+
