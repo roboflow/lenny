@@ -138,7 +138,7 @@ const App = () => {
             <>
             <div className='bg-[#09090b] text-[#fafafa] p-10'>
                 <p>Welcome to Roboflow Chatbot!</p>
-                <p className='opacity-70'>This is an open source chatbot built with Next.js, Vercel and Kapa AI inspired by Vercel's AI Template.</p>
+                <p className='opacity-70'>This is an open source chatbot built with Next.js, Vercel and Kapa AI inspired by Vercel&apos;s AI Template.</p>
                 <p className="my-4">You can start a conversation here or try the following examples:</p>
                 {prompts.map((source, index) => (
                     <div className='hover:opacity-60' key={index}>
