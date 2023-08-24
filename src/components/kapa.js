@@ -27,6 +27,7 @@ const App = () => {
     "What is instance segmentation?"
   ]
 
+
   const process_stream = async (response) => {
     const reader = response.body.getReader();
     const decoder = new TextDecoder("utf-8");
@@ -106,6 +107,15 @@ const App = () => {
     fetchData();
   };
 
+  
+  const transformLinks = (text) => {
+    const urlPattern = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
+    return text.replace(urlPattern, (match, linkText, linkUrl) => {
+      return `<div style="padding-top:10px"><div/><a href="${linkUrl}" target="_blank" style="color:#8e76ff">${linkText}</a>`;  // You can modify the color or style as required.
+    });
+  };
+  
+  
 
   return (
     <div className='w-screen h-screen flex flex-col bg-[#18181a]'>
@@ -121,21 +131,10 @@ const App = () => {
         <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] my-[6%]'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
-              <h2 className='text-5xl text-[#fafafa]'>{personIcon}</h2>
-              <p className='text-md text-[#fafafa]'>{answer}</p>
-            </div>
-              <div className='text-[#fafafa] mx-10 my-4'>
-                <h2 className='opacity-50'>Relevant Sources:</h2>
-                <ul>
-                  {relevantSources.map((source, index) => (
-                    <li className='text-[#717fe6] hover:opacity-60' key={index}>
-                      <a href={source.source_url} target="_blank" rel="noopener noreferrer">
-                        {source.source_url}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div></> :
+            <h2 className='text-5xl text-[#fafafa]'>{personIcon}</h2>
+            <div className='text-md text-[#fafafa]' dangerouslySetInnerHTML={{ __html: transformLinks(answer) }}></div>
+          </div>
+              </> :
             <>
               <div className='bg-[#09090b] text-[#fafafa] p-10'>
                 <p>Welcome to Roboflow Chatbot!</p>
