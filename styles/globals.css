@@ -15,6 +15,63 @@ body {
 }
 
 
-p, h1, h3, h4 {
-  color: #fafafa
+.ticker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+}
+
+.ticker {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+}
+
+/* Speed variations */
+.ticker-speed1 .ticker-content {
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+.ticker-speed2 .ticker-content {
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+/* Direction variations */
+.left-to-right .ticker-content {
+  animation-name: scrollingLeftToRight;
+  animation-timing-function: linear;
+}
+
+.right-to-left .ticker-content {
+  animation-name: scrollingRightToLeft;
+  animation-timing-function: linear;
+}
+
+@keyframes scrollingLeftToRight {
+  0% {
+      transform: translateX(-100%);
+  }
+
+  100% {
+      transform: translateX(200%);
+  }
+}
+
+
+@keyframes scrollingRightToLeft {
+  0% {
+      transform: translateX(100%);
+  }
+
+  100% {
+      transform: translateX(-200%);
+  }
 }

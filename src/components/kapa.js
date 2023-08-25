@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
+import ReactMarkdown from 'react-markdown';
 const App = () => {
-  const [relevantSources, setRelevantSources] = useState([]);
   const [answer, setAnswer] = useState('');
-  const [identifiers, setIdentifiers] = useState(null);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,11 +20,29 @@ const App = () => {
   )
 
   //---------- add example prompts here
+  const textColors = ['text-gray-200', 'text-gray-600', 'text-neutral-400'];
+  const getRandomTextColor = () => {
+    const randomIndex = Math.floor(Math.random() * textColors.length);
+    return textColors[randomIndex];
+  };
+  
   const prompts = [
     "What is object detection?",
-    "What is instance segmentation?"
-  ]
-
+    "What is instance segmentation?",
+    "Does YOLOv8 object detection take polygon annotations?",
+    "Does Roboflow iOS deployment support classification models?",
+    "What is the difference between instance segmentation and semantic segmentation?",
+    "What is the difference between polygon vs bounding box?",
+    "How does YOLOv8 work?",
+    "What is object detection?",
+    "What is instance segmentation?",
+    "Does YOLOv8 object detection take polygon annotations?",
+    "Does Roboflow iOS deployment support classification models?",
+    "What is the difference between instance segmentation and semantic segmentation?",
+    "What is the difference between polygon vs bounding box?",
+    "How does YOLOv8 work?"
+  ];
+  
 
   const process_stream = async (response) => {
     const reader = response.body.getReader();
@@ -63,13 +79,9 @@ const App = () => {
         buffer = buffer.slice(delimiterIndex + delimiterBytes.length);
         let chunk = JSON.parse(chunkText);
 
-        if (chunk.chunk.type === "relevant_sources") {
-          setRelevantSources(chunk.chunk.content.relevant_sources);
-        } else if (chunk.chunk.type === "partial_answer") {
+        if (chunk.chunk.type === "partial_answer") {
           setAnswer((prevAnswer) => prevAnswer + chunk.chunk.content.text);
-        } else if (chunk.chunk.type === "identifiers") {
-          setIdentifiers(chunk.chunk.content);
-        } else if (chunk.chunk.type === "error") {
+        }  else if (chunk.chunk.type === "error") {
           setError(chunk.chunk.content.reason);
           break;;
         }
@@ -102,20 +114,10 @@ const App = () => {
 
   const handleQuerySubmit = () => {
     setAnswer('');
-    setRelevantSources('');
     setError(null);
     fetchData();
   };
 
-  
-  const transformLinks = (text) => {
-    const urlPattern = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
-    return text.replace(urlPattern, (match, linkText, linkUrl) => {
-      return `<div style="padding-top:10px"><div/><a href="${linkUrl}" target="_blank" style="color:#8e76ff">${linkText}</a>`;  // You can modify the color or style as required.
-    });
-  };
-  
-  
 
   return (
     <div className='w-screen h-screen flex flex-col bg-[#18181a]'>
@@ -128,41 +130,44 @@ const App = () => {
           <p className='text-[#fafafa]'>{error}</p>
         </div>
       ) : (
-        <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] my-[6%]'>
+        <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] absolute top-10'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
             <h2 className='text-5xl text-[#fafafa]'>{personIcon}</h2>
-            <div className='text-md text-[#fafafa]' dangerouslySetInnerHTML={{ __html: transformLinks(answer) }}></div>
+            <ReactMarkdown className='text-md text-[#fafafa]' allowDangerousHtml>{answer}</ReactMarkdown>
           </div>
               </> :
             <>
-              <div className='bg-[#09090b] text-[#fafafa] p-10'>
+              <div className='bg-[#09090b] p-10 text-violet-400'>
                 <p>Welcome to Roboflow Chatbot!</p>
                 <p className='opacity-70'>This is an open source chatbot built with Next.js, Vercel and Kapa AI inspired by Vercel&apos;s AI Template.</p>
-                <p className="my-4">You can start a conversation here or try the following examples:</p>
-                {prompts.map((source, index) => (
-                  <div className='hover:opacity-60' key={index}>
-                    <div>- {source}</div>
-                  </div>
-                ))}
+                <p className="my-4">You can ask questions or try the following examples:</p>
               </div>
+              <div className='ticker-container absolute'>
+              {prompts.map((source, index) => (
+                <div className={`ticker ${index % 2 === 0 ? 'ticker-speed1 left-to-right' : 'ticker-speed2 right-to-left'}`}>
+                  <div className={`ticker-content cursor-pointer ${getRandomTextColor()}`} onClick={() => setQuery(source)}>
+                    {source}
+                  </div>
+                </div>
+              ))}
+            </div>
             </>}
         </div>
       )}
-
-      <div className="p-4 bg-[#09090b] w-[50%] mx-auto flex items-center justify-center">
-        <form className="flex w-full" onSubmit={(e) => { e.preventDefault(); handleQuerySubmit(); }}>
+      <div className="p-4 bg-[#09090b] w-[50%] mx-auto flex items-center justify-center absolute bottom-0 left-1/2 transform -translate-x-1/2">
+      <form className="flex w-full" onSubmit={(e) => { e.preventDefault(); handleQuerySubmit(); }}>
           <input
-            className='w-full p-2 rounded p-6 h-[60px] text-md text-[#fafafa] opacity-80 focus:outline-none bg-transparent border border-white/10'
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ask Lenny"
-            autoFocus
+              className='w-full p-2 rounded p-6 h-[60px] text-md text-[#fafafa] opacity-80 focus:outline-none bg-transparent border border-white/10'
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Ask Lenny"
+              autoFocus
           />
           <button className='mt-2 text-[#fafafa] p-2 rounded hover:opacity-50 opacity-80' type="submit">{sendIcon}</button>
-        </form>
-      </div>
+      </form>
+    </div>
     </div>
   );
 };
