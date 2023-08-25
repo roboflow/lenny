@@ -20,11 +20,11 @@ const App = () => {
   )
 
 
-  const textColors = ['text-gray-200', 'text-gray-600', 'text-neutral-400'];
-  const getRandomTextColor = () => {
-    const randomIndex = Math.floor(Math.random() * textColors.length);
-    return textColors[randomIndex];
-  };
+  // const textColors = ['text-gray-200', 'text-gray-600', 'text-neutral-400'];
+  // const getRandomTextColor = () => {
+  //   const randomIndex = Math.floor(Math.random() * textColors.length);
+  //   return textColors[randomIndex];
+  // };
   //---------- add example prompts here
   const prompts = [
     "What is object detection?",
@@ -120,7 +120,7 @@ const App = () => {
 
 
   return (
-    <div className='w-screen h-screen flex flex-col bg-[#18181a]'>
+    <div className='w-screen h-screen flex flex-col bg-neutral-900'>
       {loading ? (
         <div className='flex-1 flex flex-col justify-center items-center'>
           <p className='text-[#fafafa]'>Gathering sources (~15 seconds)...</p>
@@ -130,7 +130,7 @@ const App = () => {
           <p className='text-[#fafafa]'>{error}</p>
         </div>
       ) : (
-        <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] absolute top-10'>
+        <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] mt-[4%]'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
             <h2 className='text-5xl text-[#fafafa]'>{personIcon}</h2>
@@ -146,7 +146,7 @@ const App = () => {
               <div className='ticker-container absolute'>
               {prompts.map((source, index) => (
                 <div key={index} className={`ticker ${index % 2 === 0 ? 'ticker-speed1 left-to-right' : 'ticker-speed2 right-to-left'}`}>
-                  <div className={`ticker-content cursor-pointer ${getRandomTextColor()}`} onClick={() => setQuery(source)}>
+                  <div className={`ticker-content cursor-pointer text-neutral-400`} onClick={() => setQuery(source)}>
                     {source}
                   </div>
                 </div>
