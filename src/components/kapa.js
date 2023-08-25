@@ -119,15 +119,15 @@ const App = () => {
           <p className='text-[#fafafa]'>{error}</p>
         </div>
       ) : (
-        <div className='flex-1 flex flex-col justify-start p-4 mt-[4%]'>
+        <div className='flex-1 flex flex-col justify-start p-4 mt-[4%] w-full sm:w-3/4 lg:w-1/2 mx-auto'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
-            <img className='w-12 h-12' src="/lenny.svg"></img>
-            <ReactMarkdown className='text-md text-[#fafafa]' allowDangerousHtml>{answer}</ReactMarkdown>
+            <img className='w-8 h-8' src="/lenny.svg"></img>
+            <ReactMarkdown className='text-sm sm:text-xs text-[#fafafa] opacity-90' allowDangerousHtml>{answer}</ReactMarkdown>
           </div>
               </> :
             <>
-              <div className='bg-[#09090b] p-4 text-violet-400 z-50 text-sm w-full sm:w-3/4 lg:w-1/2 mx-auto'>
+              <div className='bg-[#09090b] p-4 text-violet-400 z-50 text-sm w-full sm:w-3/4 lg:w-full mx-auto'>
                 <div className="flex flex-row gap-4 my-4 items-center">
                   <img className='max-w-[70px] max-h-[70px] w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14' src="/lenny.svg"></img>
                   <p>Welcome to Roboflow Chatbot!</p>
