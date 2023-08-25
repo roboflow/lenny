@@ -145,7 +145,7 @@ const App = () => {
               </div>
               <div className='ticker-container absolute'>
               {prompts.map((source, index) => (
-                <div className={`ticker ${index % 2 === 0 ? 'ticker-speed1 left-to-right' : 'ticker-speed2 right-to-left'}`}>
+                <div key={index} className={`ticker ${index % 2 === 0 ? 'ticker-speed1 left-to-right' : 'ticker-speed2 right-to-left'}`}>
                   <div className={`ticker-content cursor-pointer ${getRandomTextColor()}`} onClick={() => setQuery(source)}>
                     {source}
                   </div>
