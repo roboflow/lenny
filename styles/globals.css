@@ -20,13 +20,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  left: 0;
+  right: 0; 
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden; 
 }
 
 .ticker {
-  width: 100%;
+  /* width: 100%; */
   white-space: nowrap;
+  
 }
 
 .ticker-content {
@@ -40,7 +45,7 @@ body {
 }
 
 .ticker-speed2 .ticker-content {
-  animation-duration: 10s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
 }
 
@@ -55,23 +60,33 @@ body {
   animation-timing-function: linear;
 }
 
+
 @keyframes scrollingLeftToRight {
   0% {
-      transform: translateX(-100%);
+      transform: translateX(-100vw);
   }
 
   100% {
-      transform: translateX(200%);
+      transform: translateX(100vw);
   }
 }
 
-
 @keyframes scrollingRightToLeft {
   0% {
-      transform: translateX(100%);
+      transform: translateX(100vw);
   }
 
   100% {
-      transform: translateX(-200%);
+      transform: translateX(-100vw);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  /* Styles for small screens like iPhones */
+  .ticker-container {
+    font-size: 0.8rem; /* adjust font size for ticker on small screens */
+  }
+  body {
+    font-size: 0.8rem; 
   }
 }

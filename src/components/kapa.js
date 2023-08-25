@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+
 const App = () => {
   const [answer, setAnswer] = useState('');
   const [error, setError] = useState(null);
@@ -118,7 +119,7 @@ const App = () => {
           <p className='text-[#fafafa]'>{error}</p>
         </div>
       ) : (
-        <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] mt-[4%]'>
+        <div className='flex-1 flex flex-col justify-start p-4 mt-[4%]'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
             <img className='w-12 h-12' src="/lenny.svg"></img>
@@ -126,16 +127,18 @@ const App = () => {
           </div>
               </> :
             <>
-              <div className='bg-[#09090b] p-10 text-violet-400'>
+              <div className='bg-[#09090b] p-4 text-violet-400 z-50 text-sm w-full sm:w-3/4 lg:w-1/2 mx-auto'>
                 <div className="flex flex-row gap-4 my-4 items-center">
-                <img className='w-14 h-14' src="/lenny.svg"></img><p>Welcome to Roboflow Chatbot!</p></div>
+                  <img className='max-w-[70px] max-h-[70px] w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14' src="/lenny.svg"></img>
+                  <p>Welcome to Roboflow Chatbot!</p>
+                </div>
                 <p className='opacity-70'>This is an open source chatbot built with Next.js, Vercel and Kapa AI inspired by Vercel&apos;s AI Template.</p>
                 <p className="my-4">You can ask questions or try the following examples:</p>
               </div>
-              <div className='ticker-container absolute'>
+              <div className='ticker-container brightness-50 opacity-80'>
               {prompts.map((source, index) => (
                 <div key={index} className={`ticker ${index % 2 === 0 ? 'ticker-speed1 left-to-right' : 'ticker-speed2 right-to-left'}`}>
-                  <div className={`ticker-content cursor-pointer text-neutral-400`} onClick={() => setQuery(source)}>
+                  <div className={`ticker-content cursor-pointer text-neutral-400 text-md`} onClick={() => setQuery(source)}>
                     {source}
                   </div>
                 </div>
@@ -144,19 +147,19 @@ const App = () => {
             </>}
         </div>
       )}
-      <div className="p-4 bg-[#09090b] w-[50%] mx-auto flex items-center justify-center absolute bottom-0 left-1/2 transform -translate-x-1/2">
-      <form className="flex w-full" onSubmit={(e) => { e.preventDefault(); handleQuerySubmit(); }}>
-          <input
-              className='w-full p-2 rounded p-6 h-[60px] text-md text-[#fafafa] opacity-80 focus:outline-none bg-transparent border border-white/10'
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Ask Lenny"
-              autoFocus
-          />
-          <button className='mt-2 text-[#fafafa] p-2 rounded hover:opacity-50 opacity-80' type="submit">{sendIcon}</button>
-      </form>
-    </div>
+      <div className="p-4 bg-[#09090b] w-full sm:w-3/4 lg:w-1/2 mx-auto flex items-center justify-center absolute bottom-0 left-1/2 transform -translate-x-1/2">
+        <form className="flex w-full" onSubmit={(e) => { e.preventDefault(); handleQuerySubmit(); }}>
+            <input
+                className='w-full p-2 rounded p-6 h-[60px] text-sm text-[#fafafa] opacity-80 focus:outline-none bg-transparent border border-white/10'
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Ask Lenny"
+                autoFocus
+            />
+            <button className='mt-2 text-[#fafafa] p-2 rounded hover:opacity-50 opacity-80' type="submit">{sendIcon}</button>
+        </form>
+      </div>
     </div>
   );
 };
