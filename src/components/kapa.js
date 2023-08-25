@@ -19,13 +19,13 @@ const App = () => {
     </svg>
   )
 
-  //---------- add example prompts here
+
   const textColors = ['text-gray-200', 'text-gray-600', 'text-neutral-400'];
   const getRandomTextColor = () => {
     const randomIndex = Math.floor(Math.random() * textColors.length);
     return textColors[randomIndex];
   };
-  
+  //---------- add example prompts here
   const prompts = [
     "What is object detection?",
     "What is instance segmentation?",
