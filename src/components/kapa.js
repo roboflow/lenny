@@ -13,18 +13,6 @@ const App = () => {
     </svg>
   )
 
-  const personIcon = (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-    </svg>
-  )
-
-
-  // const textColors = ['text-gray-200', 'text-gray-600', 'text-neutral-400'];
-  // const getRandomTextColor = () => {
-  //   const randomIndex = Math.floor(Math.random() * textColors.length);
-  //   return textColors[randomIndex];
-  // };
   //---------- add example prompts here
   const prompts = [
     "What is object detection?",
@@ -133,13 +121,14 @@ const App = () => {
         <div className='flex-1 flex flex-col justify-start p-4 mx-[20%] mt-[4%]'>
           {answer ?
             <><div className="flex flex-row gap-4 opacity-90">
-            <h2 className='text-5xl text-[#fafafa]'>{personIcon}</h2>
+            <img className='w-12 h-12' src="/lenny.svg"></img>
             <ReactMarkdown className='text-md text-[#fafafa]' allowDangerousHtml>{answer}</ReactMarkdown>
           </div>
               </> :
             <>
               <div className='bg-[#09090b] p-10 text-violet-400'>
-                <p>Welcome to Roboflow Chatbot!</p>
+                <div className="flex flex-row gap-4 my-4 items-center">
+                <img className='w-14 h-14' src="/lenny.svg"></img><p>Welcome to Roboflow Chatbot!</p></div>
                 <p className='opacity-70'>This is an open source chatbot built with Next.js, Vercel and Kapa AI inspired by Vercel&apos;s AI Template.</p>
                 <p className="my-4">You can ask questions or try the following examples:</p>
               </div>
