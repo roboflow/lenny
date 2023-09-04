@@ -11,31 +11,44 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--background-start-rgb);
-  font-family: 'Roboto', sans-serif; /* Set Roboto as the default font */
+  font-family: 'Open Sans', sans-serif; /* Set Roboto as the default font */
 }
 
 
 .ticker-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
   position: absolute;
   left: 0;
-  right: 0; 
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden; 
+  right: 0;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 1000px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  justify-items: center;
 }
 
-.ticker {
-  /* width: 100%; */
-  white-space: nowrap;
-  
+.corner-borders {
+  border-bottom: 1px solid #f7f7f7;
+  text-align: center;
+}
+
+.ticker-item {
+  text-align: center;
+  float: left;
+  padding: 15px;
+  margin: 20px;
+  color: #fff;
+  border-radius: 20px;
+  border: 1px solid #fff;
 }
 
 .ticker-content {
   display: inline-block;
+  color: #fff;
 }
 
 /* Speed variations */
@@ -88,5 +101,173 @@ body {
   }
   body {
     font-size: 0.8rem; 
+  }
+}
+
+dt {
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+dd {
+  margin-bottom: 1em;
+}
+#chat {
+  padding: 25px;
+}
+h1 {
+  margin-bottom: 0.5px;
+}
+#chat {
+  min-height: 600px;
+  /* background-color: rgba(31,41,55); */
+  border-radius: 10px;
+  text-align: left !important;
+  /* create top, left, right shadow */
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+}
+form {
+  margin-right: 50px;
+  min-width: 50em;
+}
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+  max-width: 80em;
+  margin: auto;
+  color: white;
+}
+.overlay {
+  /* // make 100% height and width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* // make it appear on top of everything */
+  z-index: 1;
+  text-align: center;
+  background-color: rgb(57, 57, 57);
+  display: none;
+}
+.overlay-content {
+  padding: 1em;
+  color: white;
+  max-width: 45em;
+  margin: auto;
+}
+.special-card {
+  background-color: rgba(31,41,55);
+  z-index: 1;
+  height: 100%;
+}
+* {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+html {
+  /* background-image: url(https://blog.roboflow.com/assets/images/bkgd_flow.svg), linear-gradient(#7733f4, #1f0655); */
+  background-position: center center, center center;
+  background-size: cover, auto;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed, scroll;
+  min-height: 100%;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(31,41,55);
+  padding: 1em;
+  z-index: 2;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: rgba(31,41,55, 0.5);
+  color: white;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+h1 {
+  font-size: 2em;
+}
+p {
+  font-size: 1.2em;
+}
+#hero {
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+main {
+  margin: 1em;
+}
+html {
+  background-color: rgb(57, 57, 57);
+}
+/* // make list wrap around cells */
+ul {
+  justify-content: center;
+  padding: 10px;
+  display: table;
+  grid-gap: 1em;
+  list-style: none;
+  padding: 0;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+li {
+  /* // center text horizontally */
+  text-align: center;
+  float: left;
+  width: calc(33% - 1em);
+  height: 5em;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-right: 15px;
+}
+/* center text vertically and horizontally */
+li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #f7f7f7;
+  opacity: 0.8;
+}
+li:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s;
+}
+header {
+  text-align: center;
+  color: white;
+  min-height: 25vh;
+}
+@media screen and (max-width: 900px) {
+  li {
+      width: 100%;
+      margin-right: 0;
+  }
+  form {
+      min-width: 0;
+      width: 90%;
   }
 }
