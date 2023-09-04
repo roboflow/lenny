@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: rgb(9 9 11);
-  --background-start-rgb: rgb(9 9 11);
+  --foreground-rgb: rgb(57, 57, 57);
+  --background-start-rgb: rgb(57, 57, 57)
 }
 
 
@@ -114,6 +114,9 @@ dd {
 #chat {
   padding: 25px;
 }
+ol {
+  margin-bottom: 20px;
+}
 h1 {
   margin-bottom: 0.5px;
 }
@@ -149,13 +152,21 @@ form {
   z-index: 1;
   text-align: center;
   background-color: rgb(57, 57, 57);
-  display: none;
+  /* display: none; */
 }
 .overlay-content {
+  overflow-y: auto;
   padding: 1em;
   color: white;
   max-width: 45em;
   margin: auto;
+  text-align: left;
+}
+.callout-color-purple {
+  color: #986bed;
+}
+.callout-color-blue {
+  color: rgba(0,255,206);
 }
 .special-card {
   background-color: rgba(31,41,55);
@@ -197,11 +208,14 @@ input[type=text] {
   border-radius: 4px;
   font-size: 1.2em;
 }
+.overlay p {
+  margin-bottom: 15px;
+}
 h1 {
   font-size: 2em;
 }
-p {
-  font-size: 1.2em;
+p, ol, li {
+  font-size: 1.1em;
 }
 #hero {
   padding-top: 2em;
@@ -218,7 +232,7 @@ html {
   background-color: rgb(57, 57, 57);
 }
 /* // make list wrap around cells */
-ul {
+#prompts {
   justify-content: center;
   padding: 10px;
   display: table;
@@ -228,7 +242,7 @@ ul {
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
 }
-li {
+#prompts li {
   /* // center text horizontally */
   text-align: center;
   float: left;
@@ -242,7 +256,7 @@ li {
   margin-right: 15px;
 }
 /* center text vertically and horizontally */
-li a {
+#prompts li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,22 +266,64 @@ li a {
   color: #f7f7f7;
   opacity: 0.8;
 }
-li:hover {
+.overlay-content h2 {
+  font-size: 2em;
+  margin-bottom: 25px;
+  border-bottom: 1px solid lightgrey;
+}
+#prompt li:hover {
   transform: scale(1.05);
   transition: transform 0.5s;
+}
+.overlay-content li a, .overlay-content p a {
+  text-decoration: none;
+  border-bottom: 2px solid #986bed;
+  box-shadow: inset 0 -4px 0 #986bed;
+  color: inherit;
+  transition: background 0.1s cubic-bezier(.33,.66,.66,1);
+}
+
+.overlay-content li a:hover {
+  background: #986bed;
+}
+
+.overlay-content li a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+.overlay-content li a:not([href]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+pre {
+  background-color: rgba(31,41,55);
+  padding: 1em;
+  border-radius: 10px;
+  color: white;
+  overflow-x: auto;
+  margin-bottom: 15px;
 }
 header {
   text-align: center;
   color: white;
   min-height: 25vh;
 }
+svg {
+  margin-bottom: 30px;
+}
+.disclaimer {
+  font-size: 0.7em;
+}
 @media screen and (max-width: 900px) {
-  li {
+  #prompts li {
       width: 100%;
       margin-right: 0;
   }
   form {
       min-width: 0;
       width: 90%;
+  }
+  .hide-on-mobile {
+    display: none;
   }
 }
