@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <div id="hero">
+                <img src="https://roboflow-chat.vercel.app/lenny.svg" height=50 width=50>
+                <h1>Ask Lenny about your computer vision project.</h1>
+                <p>Lenny is the power of GPT-4, plus <span style="color: #986bed;">500+ blog posts</span>, <span style="color: rgba(0,255,206);">100+ docs pages</span>, and Roboflow developer documentation.</p>
+            </div>
+        </header>
+        <main>
+            <ul>
+                <li><a href="#">What is object detection?</a></li>
+                <li><a href="#">Lenny!</a></li>
+                <li><a href="#">Does YOLOv8 object detection take polygon annotations?</a></li>
+                <li><a href="#">Does Roboflow iOS deployment support classification models?</a></li>
+                <li><a href="#">Instance vs semantic segmentation</a></li>
+                <li><a href="#">Polygon vs bounding box</a></li>
+                <li><a href="#">How does YOLOv8 work?</a></li>
+                <li><a href="#">What is object detection?</a></li>
+                <li><a href="#">What is object detection?</a></li>
+                <li><a href="#">How does YOLOv8 work?</a></li>
+                <li><a href="#">What is object detection?</a></li>
+                <li><a href="#">What is object detection?</a></li>
+            </ul>
+            <section class="overlay">
+                <div class="overlay-content">
+                    <!-- <img src="https://roboflow-chat.vercel.app/lenny.svg" height=50 width=50>
+                    <h1>Lenny</h1>
+                    <p style="margin-bottom: 20px;">Find answers to questions about Roboflow and computer vision.</p> -->
+                    <div id="chat">
+                        <dl>
+                            <dt>
+                                <p>What is object detection?</p>
+                            </dt>
+                            <dd>
+                                <p>Object detection is the task of identifying objects in an image and drawing a bounding box around them.</p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                <p>What is object detection?</p>
+                            </dt>
+                            <dd>
+                                <p>Object detection is the task of identifying objects in an image and drawing a bounding box around them.</p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="footer-wrapper">
+                    <form action="https://roboflow-chat.vercel.app/">
+                        <input type="text" placeholder="Ask a question...">
+                        <p style="color: f7f7f7; font-size: 0.7em; text-align: center;;">Note: Lenny, powered by ChatGPT, is a beta product. It may produce inaccurate information.</p>
+                    </form>
+                    <svg height=50 style="margin-bottom: 15px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path></svg>
+                </div>
+            </footer>
+        </main>
+        <style>
+            dt {
+                opacity: 0.5;
+                margin-bottom: 10px;
+            }
+            dd {
+                margin-bottom: 1em;
+            }
+            #chat {
+                padding: 25px;
+            }
+            h1 {
+                margin-bottom: 0.5px;
+            }
+            #chat {
+                min-height: 600px;
+                /* background-color: rgba(31,41,55); */
+                border-radius: 10px;
+                text-align: left !important;
+                /* create top, left, right shadow */
+                /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+            }
+            form {
+                margin-right: 50px;
+                min-width: 50em;
+            }
+            .footer-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1em;
+                max-width: 80em;
+                margin: auto;
+                color: white;
+            }
+            .overlay {
+                /* // make 100% height and width */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* // make it appear on top of everything */
+                z-index: 1;
+                text-align: center;
+                background-color: rgb(57, 57, 57);
+                display: none;
+            }
+            .overlay-content {
+                padding: 1em;
+                color: white;
+                max-width: 45em;
+                margin: auto;
+            }
+            .special-card {
+                background-color: rgba(31,41,55);
+                z-index: 1;
+                height: 100%;
+            }
+            * {
+                font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+            }
+            html {
+                /* background-image: url(https://blog.roboflow.com/assets/images/bkgd_flow.svg), linear-gradient(#7733f4, #1f0655); */
+                background-position: center center, center center;
+                background-size: cover, auto;
+                background-repeat: no-repeat, repeat;
+                background-attachment: fixed, scroll;
+                min-height: 100%;
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: rgba(31,41,55);
+                padding: 1em;
+                z-index: 2;
+            }
+            input[type=text] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                background-color: rgba(31,41,55, 0.5);
+                color: white;
+                border-radius: 4px;
+                font-size: 1.2em;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+            #hero {
+                padding-top: 2em;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            main {
+                margin: 1em;
+            }
+            html {
+                background-color: rgb(57, 57, 57);
+            }
+            /* // make list wrap around cells */
+            ul {
+                justify-content: center;
+                padding: 10px;
+                display: table;
+                grid-gap: 1em;
+                list-style: none;
+                padding: 0;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+            }
+            li {
+                /* // center text horizontally */
+                text-align: center;
+                float: left;
+                width: calc(33% - 1em);
+                height: 5em;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+                margin-bottom: 10px;
+                font-size: 1.2em;
+                margin-right: 15px;
+            }
+            /* center text vertically and horizontally */
+            li a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+                color: #f7f7f7;
+                opacity: 0.8;
+            }
+            li:hover {
+                transform: scale(1.05);
+                transition: transform 0.5s;
+            }
+            header {
+                text-align: center;
+                color: white;
+                min-height: 25vh;
+            }
+            @media screen and (max-width: 900px) {
+                li {
+                    width: 100%;
+                    margin-right: 0;
+                }
+                form {
+                    min-width: 0;
+                    width: 90%;
+                }
+            }
+        </style>
+       <script>
+        var candidates = [
+            "What is object detection?",
+            "What is instance segmentation?",
+            "Does YOLOv8 object detection take polygon annotations?",
+            "Does Roboflow iOS deployment support classification models?",
+            "Instance vs semantic segmentation",
+            "Polygon vs bounding box",
+            "How does YOLOv8 work?",
+            "What is object detection?"
+        ];
+    
+        var list = document.querySelectorAll("li");
+        var i = 0;
+    
+        function fadeIn() {
+            var link = list[i].querySelector("a");
+            var opacity = 0.15;
+            link.style.display = "flex";
+            link.innerHTML = candidates[Math.floor(Math.random() * candidates.length)];
+    
+            function increaseOpacity() {
+                if (opacity >= 0.8) {
+                    return;
+                }
+                link.style.opacity = opacity;
+                opacity += 0.02; // Adjust the increment to control speed
+                requestAnimationFrame(increaseOpacity);
+            }
+    
+            link.style.opacity = 0;
+            requestAnimationFrame(increaseOpacity);
+        }
+    
+        function fadeOut(callback) {
+            var link = list[i].querySelector("a");
+            var opacity = 1;
+    
+            function decreaseOpacity() {
+                if (opacity <= 0.1) {
+                    link.style.display = "none";
+                    if (callback) {
+                        callback(); // Call the callback function after fadeOut
+                    }
+                    return;
+                }
+                link.style.opacity = opacity;
+                opacity -= 0.02; // Adjust the decrement to control speed
+                requestAnimationFrame(decreaseOpacity);
+            }
+    
+            requestAnimationFrame(decreaseOpacity);
+        }
+    
+        function changeListItem() {
+            i = Math.floor(Math.random() * list.length);
+            fadeOut(fadeIn); // Call fadeIn as a callback after fadeOut
+            setTimeout(changeListItem, 5000); // Adjust the timeout to control the transition speed
+        }
+    
+        changeListItem();
+    </script>
+    
+    
+    </body>
+</html>

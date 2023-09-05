@@ -1,0 +1,18 @@
+{
+    "short_name": "Lenny",
+    "name": "Lenny",
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#fff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#986bed",
+    "description": "Ask Lenny about your computer vision project.",
+    "icons": [
+        {
+            "src": "/lenny.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
