@@ -2,15 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: rgb(57, 57, 57);
-  --background-start-rgb: rgb(57, 57, 57)
-}
 
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: var(--background-start-rgb);
+  background: rgb(58, 58, 58);
   font-family: 'Open Sans', sans-serif; /* Set Roboto as the default font */
 }
 
@@ -125,8 +120,6 @@ h1 {
   /* background-color: rgba(31,41,55); */
   border-radius: 10px;
   text-align: left !important;
-  /* create top, left, right shadow */
-  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
 }
 form {
   margin-right: 50px;
@@ -193,7 +186,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(31,41,55);
+  background-color: rgba(0, 0, 0, 0.682);
   padding: 1em;
   z-index: 2;
 }
@@ -229,7 +222,7 @@ main {
   margin: 1em;
 }
 html {
-  background-color: rgb(57, 57, 57);
+  background-color: rgb(58, 58, 58);
 }
 /* // make list wrap around cells */
 #prompts {
@@ -269,7 +262,7 @@ html {
 .overlay-content h2 {
   font-size: 2em;
   margin-bottom: 25px;
-  border-bottom: 1px solid lightgrey;
+
 }
 #prompt li:hover {
   transform: scale(1.05);
@@ -327,3 +320,5 @@ svg {
     display: none;
   }
 }
+
+
