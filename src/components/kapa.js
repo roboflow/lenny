@@ -67,7 +67,7 @@ const App = () => {
         <header>
             <div id="hero">
                 <img src="https://roboflow-chat.vercel.app/lenny.svg" height="50" width="50" />
-                <h1>Ask Lenny about your computer vision project.</h1>
+                <h1>Ask Lenny about your <br className="show_on_mobile" /> computer vision project.</h1>
                 <p>Lenny is the power of GPT-4, plus <span className="callout-color-purple">500+ blog posts</span>, <span className="callout-color-blue">100+ docs pages</span>, and Roboflow developer documentation.</p>
             </div>
         </header>
