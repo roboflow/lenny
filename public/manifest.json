@@ -3,16 +3,16 @@
     "name": "Lenny",
     "id": "/?source=pwa",
     "start_url": "/?source=pwa",
-    "background_color": "#fff",
+    "background_color": "#333333",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#986bed",
+    "theme_color": "#333333",
     "description": "Ask Lenny about your computer vision project.",
     "icons": [
         {
-            "src": "/lenny.svg",
+            "src": "/lenny.png",
             "sizes": "any",
-            "type": "image/svg+xml"
+            "type": "image/png"
         }
     ]
 }

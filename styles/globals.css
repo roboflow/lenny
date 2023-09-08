@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@font-face {
+  font-family: 'Inter';
+  src: url('/inter/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+}
 
 body {
   background: rgb(58, 58, 58);
-  font-family: 'Open Sans', sans-serif; /* Set Roboto as the default font */
+  font-family: 'Inter'; /* Set Roboto as the default font */
+  padding: 20px;
 }
 
 
@@ -167,7 +171,7 @@ form {
   height: 100%;
 }
 * {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Inter, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -181,12 +185,17 @@ html {
   background-attachment: fixed, scroll;
   min-height: 100%;
 }
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.682);
+  background-color: rgba(0, 0, 0);
   padding: 1em;
   z-index: 2;
 }
@@ -201,6 +210,9 @@ input[type=text] {
   border-radius: 4px;
   font-size: 1.2em;
 }
+input[type=text]:focus {
+  background-color: rgba(31,41,55, 0.8);
+}
 .overlay p {
   margin-bottom: 15px;
 }
@@ -211,7 +223,6 @@ p, ol, li {
   font-size: 1.1em;
 }
 #hero {
-  padding-top: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -299,13 +310,16 @@ pre {
 header {
   text-align: center;
   color: white;
-  min-height: 25vh;
+  margin-bottom: 25px;
 }
 svg {
   margin-bottom: 30px;
 }
 .disclaimer {
   font-size: 0.7em;
+}
+.show_on_mobile {
+  display: none;
 }
 @media screen and (max-width: 900px) {
   #prompts li {
@@ -318,6 +332,9 @@ svg {
   }
   .hide-on-mobile {
     display: none;
+  }
+  .show_on_mobile {
+    display: block;
   }
 }
 
