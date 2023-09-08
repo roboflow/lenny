@@ -321,4 +321,17 @@ svg {
   }
 }
 
+.hidden {
+  opacity: 0;
+  display: none;  /* So that it doesn't take up space */
+}
 
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}

@@ -16,9 +16,11 @@ var i = 0;
 function fadeIn() {
     var link = list[i].querySelector("a");
     var opacity = 0.15;
+    var currentPrompt = candidates[Math.floor(Math.random() * candidates.length)];
     link.style.display = "flex";
-    link.innerHTML = candidates[Math.floor(Math.random() * candidates.length)];
+    link.innerHTML = currentPrompt;
 
+    link.setAttribute('data-prompt', currentPrompt);
     function increaseOpacity() {
         if (opacity >= 0.8) {
             return;
